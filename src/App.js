@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+// import './App.css';
 
-function App() {
+function App () {
+  /* Use state and assign ES6 array with SETA for state
+  ** The React useState Hook allows us to track state in a function component.
+  */
+  const [count, setCount] = useState(0);
+
+  // Arrow function to increment
+  const increment = () => {
+    setCount(count + 1);
+  }
+
+  // Arrow function to decrement
+  const decrement = () => {
+    setCount(count - 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-counter" >
+      <h1>Welcome, Counter App</h1>
+      <div className="counter">
+        <p> Count: {count}</p>
+        <button onClick={decrement}> - </button>
+        <button onClick={increment}> + </button>
+      </div>
     </div>
   );
 }
